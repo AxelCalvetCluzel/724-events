@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import PropTypes from "prop-types";
-
 import "./style.scss";
 
 const Select = ({
@@ -15,14 +14,17 @@ const Select = ({
 }) => {
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
+
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue);
     setValue(newValue);
     setCollapsed(newValue);
   };
+
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
       {label && <div className="label">{label}</div>}
+
       <div className="Select">
         <ul>
           <li className={collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
@@ -32,7 +34,7 @@ const Select = ({
             <>
               {!titleEmpty && (
                 <li onClick={() => changeValue(null)}>
-                  <input defaultChecked={!value} name="selected" type="radio" />{" "}
+                  <input defaultChecked={!value} name="selected" type="radio" />
                   Toutes
                 </li>
               )}
@@ -42,14 +44,14 @@ const Select = ({
                     defaultChecked={value === s}
                     name="selected"
                     type="radio"
-                  />{" "}
+                  />
                   {s}
                 </li>
               ))}
             </>
           )}
         </ul>
-        <input type="hidden" value={value || ""} name={name} />
+        <input type="hidden" value={value || ""} name={name} />{" "}
         <button
           type="button"
           data-testid="collapse-button-testid"
@@ -88,7 +90,7 @@ Select.propTypes = {
   titleEmpty: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
-}
+};
 
 Select.defaultProps = {
   onChange: () => null,
@@ -96,6 +98,6 @@ Select.defaultProps = {
   label: "",
   type: "normal",
   name: "select",
-}
+};
 
 export default Select;

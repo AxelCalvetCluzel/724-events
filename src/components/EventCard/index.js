@@ -4,13 +4,13 @@ import { getMonth } from "../../helpers/Date";
 import "./style.scss";
 
 const EventCard = ({
-  imageSrc,
-  imageAlt,
-  date = new Date(),
-  title,
-  label,
-  small = false,
-  ...props
+  imageSrc="http://src-image",
+  imageAlt="image-alt-text",
+  title="test event",
+  label="test label",
+  date = new Date("2022-04-01"),
+  small = false 
+  ,...props
 }) => (
     <div
       data-testid="card-testid"
@@ -29,16 +29,20 @@ const EventCard = ({
   );
 
 EventCard.propTypes = {
-  imageSrc: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string,
   imageAlt: PropTypes.string,
-  date: PropTypes.instanceOf(Date).isRequired,
-  title: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date),
+  title: PropTypes.string,
   small: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 };
 
 EventCard.defaultProps = {
-  imageAlt: "image",
+  imageSrc: "http://src-image",
+  imageAlt: "image-alt-text",
+  date: new Date("2022-04-01"),
+  title: "test event",
+  label: "test label",
   small: false,
 }
 
