@@ -32,7 +32,7 @@ const Page = () => {
         <div className="ListContainer">
           <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
             <h3>Soirée d’entreprise</h3>
-            Une soirée d’entreprise vous permet de réunir vos équipes pour un
+            Une soirée d’entreprises vous permet de réunir vos équipes pour un
             moment convivial afin de valoriser votre société en projetant une
             image dynamique. Nous vous proposons d’organiser pour vous vos
             diners et soirée d’entreprise
